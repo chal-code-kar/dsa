@@ -1,0 +1,12 @@
+// https://www.educative.io/interview-prep/coding/kth-largest-element-in-an-array
+
+int FindKthLargest(vector<int>& nums, int k) {
+    priority_queue<int, vector<int>, greater<int>> minHeap;
+
+    for (int num : nums) {
+        minHeap.push(num);
+        if (minHeap.size() > k) minHeap.pop();
+    }
+
+    return minHeap.top();
+}
